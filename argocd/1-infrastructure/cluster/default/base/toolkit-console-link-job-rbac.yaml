@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: toolkit-console-link-job-rbac
+spec:
+  destination:
+    namespace: toolkit
+    server: https://kubernetes.default.svc
+  project: 1-infrastructure
+  source:
+    path: payload/1-infrastructure/namespace/toolkit/console-link-job-rbac
+    repoURL: https://github.com/mjperrins/tz-turbo-gitops-02
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  ignoreDifferences: []
