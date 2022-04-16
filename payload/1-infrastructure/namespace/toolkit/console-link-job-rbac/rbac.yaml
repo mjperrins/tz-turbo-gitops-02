@@ -1,0 +1,54 @@
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: console-link-job
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"
+rules:
+- "apiGroups":
+  - ""
+  "resourceNames": null
+  "resources":
+  - "configmaps"
+  "verbs":
+  - "*"
+- "apiGroups":
+  - "apps"
+  "resourceNames": null
+  "resources":
+  - "daemonsets"
+  "verbs":
+  - "list"
+  - "get"
+- "apiGroups":
+  - "route.openshift.io"
+  "resourceNames": null
+  "resources":
+  - "routes"
+  "verbs":
+  - "list"
+  - "get"
+- "apiGroups":
+  - "console.openshift.io"
+  "resourceNames": null
+  "resources":
+  - "consolelinks"
+  "verbs":
+  - "*"
+
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: console-link-job
+  annotations:
+    argocd.argoproj.io/sync-wave: "-5"
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: console-link-job
+subjects:
+- kind: ServiceAccount
+  name: console-link-job
+  namespace: toolkit
+---
