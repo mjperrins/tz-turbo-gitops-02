@@ -1,0 +1,31 @@
+apiVersion: charts.helm.k8s.io/v1
+kind: Xl
+metadata:
+  name: xl-release
+  annotations:
+    argocd.argoproj.io/sync-wave: "2"
+spec:
+  global:
+    repository: turbonomic
+    tag: 8.4.4
+    storageClassName: managed-premium
+    serviceAccountName: t8c-operator
+  ui:
+    enabled: true
+  market:
+    image:
+      pullPolicy: IfNotPresent
+      repository: docker.io/turbonomic
+      tag: 8.4.4
+    serviceAccountName: t8c-operator    
+  nginx:
+    nginxIsPrimaryIngress: false
+    httpsRedirect: false
+  nginxingress:
+    enabled: true
+  openshiftingress:
+    enabled: true
+
+
+  kubeturbo:
+    enabled: true
