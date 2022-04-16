@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: toolkit-console-link-job
+spec:
+  destination:
+    namespace: toolkit
+    server: https://kubernetes.default.svc
+  project: 2-services
+  source:
+    path: payload/2-services/namespace/toolkit/console-link-job
+    repoURL: https://github.com/mjperrins/tz-turbo-gitops-02
+    targetRevision: main
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  ignoreDifferences: []
