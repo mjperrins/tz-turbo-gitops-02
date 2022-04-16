@@ -3,3 +3,4 @@ kind: Kustomization
 resources:
   - base/toolkit-console-link-job.yaml
   - base/turbonomic-turbo.yaml
+  - base/turbonomic-turboinst.yaml
