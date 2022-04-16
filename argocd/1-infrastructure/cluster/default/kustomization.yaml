@@ -5,3 +5,4 @@ resources:
   - base/toolkit-cluster-config.yaml
   - base/toolkit-console-link-job-rbac.yaml
   - base/toolkit-console-link-job-sa.yaml
+  - base/turbonomic-t8c-operator-sa.yaml
