@@ -7,3 +7,4 @@ resources:
   - base/toolkit-console-link-job-sa.yaml
   - base/turbonomic-t8c-operator-rbac.yaml
   - base/turbonomic-t8c-operator-sa.yaml
+  - base/turbonomic-t8c-operator-scc.yaml
