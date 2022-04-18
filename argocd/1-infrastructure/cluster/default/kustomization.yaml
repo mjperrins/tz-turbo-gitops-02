@@ -1,7 +1,6 @@
 apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 resources:
-  - base/namespace-toolkit.yaml
   - base/toolkit-cluster-config.yaml
   - base/turbonomic-t8c-operator-rbac.yaml
   - base/turbonomic-t8c-operator-sa.yaml
